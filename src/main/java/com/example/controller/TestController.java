@@ -1,9 +1,10 @@
 package com.example.controller;
 
 import com.example.entity.SteamGame;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.entity.User;
+import org.springframework.web.bind.annotation.*;
+
+import java.sql.SQLOutput;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -16,4 +17,28 @@ public class TestController {
         System.out.println(str1+"\n"+str2);
         return str3;
     }
+    @GetMapping("/say2/{gender}/{name}")
+    public String TestGet2(@PathVariable String name, @PathVariable String gender){
+        String str=name+gender;
+
+        return str;
+    }
+
+
+//    @PostMapping("/login")
+//        public String postData(@RequestBody User user){
+//
+//            System.out.println(user.getName());
+//            System.out.println(user.getPwd());
+//
+//            if(user.getName().equals("admin") && user.getPwd().equals("admin")){
+//                System.out.println("Login Success!");
+//                return "success";
+//            }
+//            else{
+//                System.out.println("login failed");
+//                return "fail";
+//            }
+
+//    }
 }
