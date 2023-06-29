@@ -1,4 +1,5 @@
 package com.example.controller;
+import com.example.entity.LoginResult;
 import com.example.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -16,16 +17,20 @@ public class LoginController {
     private JdbcTemplate jdbc;
 
     @PostMapping("/login")
-    public String dologin(@RequestBody User user) {
+    public LoginResult dologin(@RequestBody User user) {
         System.out.println(user.getName() + user.getPwd());
+        LoginResult res = new LoginResult();//需要new对象
         try {
-
             User returnuser = jdbc.queryForObject("select * from User where name = ? and pwd = ?", new BeanPropertyRowMapper<>(User.class),
                     user.getName(), user.getPwd());
-            return "success";
+            res.setCode(200);
+            res.setResult(returnuser);
+            return res;
         } catch (DataAccessException e) {
             e.printStackTrace();
-            return "fail";
+            res.setCode(400);
+            res.setResult("出现异常: "+e.getMessage());
+            return res;
         }
     }
 }

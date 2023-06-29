@@ -1,12 +1,12 @@
-package com.example.controller;
+package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LoginSprintBootApplication {
+public class MyApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LoginSprintBootApplication.class, args);
+        SpringApplication.run(MyApplication.class, args);
     }
 
 }

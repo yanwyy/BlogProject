@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.entity.SteamGame;
 import com.example.entity.User;
+import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLOutput;
