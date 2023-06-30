@@ -28,7 +28,7 @@ public class LoginController {
             return res;
         } catch (DataAccessException e) {
             e.printStackTrace();
-            res.setCode(400);
+            res.setCode(201);
             res.setResult("出现异常: "+e.getMessage());
             return res;
         }
